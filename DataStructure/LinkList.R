@@ -99,6 +99,23 @@ LinkList <- R6Class(
             cat("已反转!\n")
         },
         
+        reverse_rec= function(node) {
+            # 递归反转
+            self$tail <- self$head
+            if (is.null(node)) {
+                return(NULL)
+            }
+            if (is.null(node$after)) {
+                self$head <- node
+                return(node)
+            }
+            after_node <- node$after
+            rest <- self$reverse_rec(after_node)
+            after_node$after <- node
+            node$after <- NULL
+            return(rest)
+        },
+              
         iter = function() {
             # 遍历链表
             if (is.null(self$head)) {
@@ -130,9 +147,17 @@ for (i in 1:10) {
   LL2$insert_head(i)
 }
 LL2$iter()
+LL2$head$item %>% print()
+LL2$tail$item %>% print()
 LL2$reverse()
 LL2$iter()
+LL2$head$item %>% print()
+LL2$tail$item %>% print()
 LL2$size() %>% print()
+LL2$reverse_rec(LL2$head)
+LL2$iter()
+LL2$head$item %>% print()
+LL2$tail$item %>% print()
 
 
 
