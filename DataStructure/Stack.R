@@ -34,6 +34,13 @@ Stack <- R6Class(
             self$items <- self$items[-n]
             return(item)
         },
+        
+        peek = function() {
+            # 返回栈顶元素
+            n <- self$size()
+            item <- self$items[[n]]
+            return(item)
+        },
       
         iter = function() {
             # 遍历
@@ -51,13 +58,13 @@ for (i in 1:10) {
 }
 
 s$iter()
+print(s$peek())
 s$pop()
 s$pop()
 print(s$is_empty())
 print(s$size())
 s$iter()
-
-
+print(s$peek())
 
 
 
