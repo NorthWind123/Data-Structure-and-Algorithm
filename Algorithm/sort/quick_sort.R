@@ -7,15 +7,15 @@
 # 4：最后合并各数组
 
 quick_sort <- function(arr) {
-  if (length(arr) < 2) {
-    return(arr)
-  }
-  else {
-    base_value <- arr[1]
-    left <- arr[-1][arr[-1] <= base_value]
-    right <- arr[-1][arr[-1] > base_value]
-    return(c(quick_sort(left), base_value, quick_sort(right)))
-  }
+    if (length(arr) < 2) {
+        return(arr)
+    }
+    else {
+        base_value <- arr[1]
+        left <- arr[-1][arr[-1] <= base_value]
+        right <- arr[-1][arr[-1] > base_value]
+        return(c(quick_sort(left), base_value, quick_sort(right)))
+    }
 }
 
 arr <- sample(10000)

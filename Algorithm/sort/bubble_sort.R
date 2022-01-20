@@ -1,6 +1,9 @@
 
 bubble_sort <- function(x) {
     n <- length(x)
+    if (n < 2) {
+        return(x)
+    }
     i <- 1
     flag <- TRUE
     count <- 0
