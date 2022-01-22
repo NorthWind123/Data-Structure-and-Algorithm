@@ -11,9 +11,11 @@ quick_sort <- function(arr) {
         return(arr)
     }
     else {
-        base_value <- arr[1]
-        left <- arr[-1][arr[-1] <= base_value]
-        right <- arr[-1][arr[-1] > base_value]
+        n <- length(arr)
+        i <- sample(n, 1)
+        base_value <- arr[i]
+        left <- arr[-i][arr[-i] <= base_value]
+        right <- arr[-i][arr[-i] > base_value]
         return(c(quick_sort(left), base_value, quick_sort(right)))
     }
 }
