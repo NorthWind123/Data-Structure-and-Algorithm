@@ -15,11 +15,9 @@ insert_sort <- function(x) {
             temp <- x[j]
             x[j] <- x[j-1]
             x[j-1] <- temp
-            count <- count + 1
             j <- j -1
         }
     }
-    cat("共交换", count, "次\n")
     return(x)
 }
 

@@ -4,25 +4,20 @@ bubble_sort <- function(x) {
     if (n < 2) {
         return(x)
     }
-    count <- 0
     for (i in 1:(n-1)) {
-        flag <- TRUE
+        swap <- FALSE
         for (j in 1:(n - i)) {
             if (x[j] > x[j+1]) {
                 temp <- x[j]
                 x[j] <- x[j+1]
                 x[j+1] <- temp
-                flag <- FALSE
-                count <- count + 1
+                swap <- TRUE
             }
         }
-        if (flag) {
-            cat("共遍历", i, "趟,", "共交换", count, "次\n")
+        if (!swap) {
             return(x)
         }
     }
-    cat("共遍历", i, "趟 ", "共交换", count, "次\n")
-    return(x)
 }
 
 set.seed(1)
